@@ -1,0 +1,23 @@
+.get-started {
+  display: flex;
+  justify-content: center;
+  width: 247px;
+  height: 79px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #D5795D;
+  p {
+    position: relative;
+    top: 22px;
+    color: #FFFF;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .arrow {
+    position: relative;
+    top: 18px;
+    left: 12px;
+    width: 46px;
+    height: 46px;
+  }
+}
