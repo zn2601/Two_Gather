@@ -1,3 +1,16 @@
-<%= simple_form_for(@post) do |f| %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-<% end %>
+<div class="container">
+  <%= link_to posts_path(@posts) do %>
+    <div class="triangle-btn"></div>
+  <% end %>
+  <h1>Create a post</h1>
+  <hr>
+  <%= simple_form_for(@post) do |f| %>
+    <%= f.input :title, placeholder: 'post title', label: false %>
+    <%= f.input :description, placeholder: 'post description... please explain your situation as concise as possible.', label: false %>
+    <%= f.input :category, as: :select, collection: ["gardening", "cooking", "DIY", "cleaning"], placeholder: '#...', label: false %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <p>To make sure you are getting the right experience, please choose from the following:</p>
+    <%= f.collection_radio_buttons :asker, [[true, 'I am asking for help'], [false, 'I am providing help']], :first, :last%>
+    <%= f.submit %>
+  <% end %>
+</div>
