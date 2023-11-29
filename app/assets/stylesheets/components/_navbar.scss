@@ -17,6 +17,9 @@
   flex-shrink: 0;
   background: #2CAA49;
   border-radius: 50%;
+  position: absolute;
+  right: 41%;
+  bottom: 20px;
 }
 
 .orange-bar {
@@ -25,4 +28,27 @@
   flex-shrink: 0;
   border-radius: 20px;
   background: #D5795D;
+}
+
+.plus-icon {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: space-between;
+  svg {
+    flex: 1;
+  }
+  // .navbar-left {
+  //   flex: 1;
+  //   justify-content: left;
+  //   top: ;
+  // }
+  // .navbar-right {
+  //   flex: 1;
+  //   justify-content: right;
+  // }
 }

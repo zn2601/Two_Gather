@@ -36,3 +36,10 @@
     background: #F8F7FD;
   }
 }
+
+.container.navbar {
+  width: fit-content;
+  height: fit-content;
+  flex-shrink: 0;
+  position: relative;
+}
