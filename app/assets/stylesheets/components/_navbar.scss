@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.green-circle {
+  width: 63px;
+  height: 63px;
+  flex-shrink: 0;
+  background: #2CAA49;
+  border-radius: 50%;
+}
+
+.orange-bar {
+  width: 365px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #D5795D;
+}

@@ -23,16 +23,21 @@
 <%# POSTS INDEX %>
 <div class="container zipcode">
   <%# input from user to get user.zipcode to search with mapbox %>
-  <%#= simple_form_for @user do |f| %>
-  <%#= f.input :zipcode, placeholder: 'Start searching with your zipcode' %>
-  <%#= f.submit %>
-<%# end %>
+  <%# LOOK AT SEARCH LECTURE %>
+  <p id="zipcode-placeholder">start searching with your zipcode</p>
 </div>
 
 <hr>
 
 <div class="container role-toggle">
   <%# buttons to switch showing all asker posts on map or show all helper posts on map based on current location%>
+  <%# if displaying asker put orange class else put orange class on helper div depends on which view helper or asker %>
+  <div id="asker" class="orange">
+    <p id="asker-placeholder">asking for help</p>
+  </div>
+  <div id="helper" class="white">
+    <p id="helper-placeholder">providing help</p>
+  </div>
 </div>
 
 <hr>
@@ -40,6 +45,11 @@
 <div class="container navbar">
   <%# navbar with 4 icons with links to: profile dashboard, posts index, chat index, system settings %>
   <%# in the middle 1 big round button to add new post %>
+  <div class="orange-bar">
+    <div class="green-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 6L18 30M30 18L6 18" stroke="#F8F7FD" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </div>
 </div>
 
 <hr>
@@ -87,4 +97,12 @@
     <%# ELSE %>
       <%# "post.user.name chose not to attach any images" %>
     <%# END %>
+</div>
+
+<hr>
+
+<%# POSTS CREATE %>
+
+<div class="container create-post">
+
 </div>
