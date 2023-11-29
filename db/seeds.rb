@@ -8,8 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Reviews.delete_all
-# puts "deleting reviews"
+Review.delete_all
+puts "deleting reviews"
 Post.delete_all
 puts "deleting Posts"
 User.delete_all
