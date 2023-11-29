@@ -1,0 +1,19 @@
+<div>
+  <h1>Hi <%= current_user.name %> <h1>
+  <h1> This is <%= @post.user.name %> <h1>
+    <% if @post.asker? %>
+      <h3> They would really appreciate some help with <strong> <%=@post.category  %> <strong></h3>
+    <% else %>
+      <h3> They would love to help with <strong> <%=@post.category  %> <strong></h3>
+    <% end %>
+  <p>Zipcode: <%= @post.user.zipcode %></p>
+<div>
+
+<div>
+<p> <%= @post.user.name %> + "'s struggle" </p>
+
+<p> <%= @post.description %> </p>
+
+<%= link_to "Reach out", chatroom_path(current_user_id: current_user.id, post_user_id: @post.user.id), class: "btn btn-primary" %>
+
+<div>
