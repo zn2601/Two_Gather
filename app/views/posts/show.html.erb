@@ -1,23 +1,34 @@
-<div>
-  <h1>Hi <%= current_user.name %> <h1>
-  <h1> This is <%= @post.user.name %> <h1>
+<div class="container">
+  <%= link_to posts_path(@posts) do %>
+    <div class="triangle-btn"></div>
+  <% end %>
+
+  <div>
+    <h1>Hi <%= current_user.name %> <h1>
+    <h1> This is <%= @post.user.name %> <h1>
+  </div>
+
+  <p> AVATAR PICTURE </p>
+
   <h5><%= welcome_message %></h5>
   <p>Zipcode: <%= @post.user.zipcode %></p>
-<div>
-<div>
-<p> <strong> <%= @post.user.name %>'s struggle </strong></p>
-<p> <%= @post.description %> </p>
 
+  <div>
+    <div>
+      <p> <strong> <%= @post.user.name %>'s struggle </strong></p>
+      <p> <%= @post.description %> </p>
+      <%= link_to button_text, class: "btn btn-primary" %>
+    </div>
 
-<%= link_to button_text, class: "btn btn-primary" %>
-<div>
+    attached images
 
-attached images
+    <% if @post.images.attached? %>
+      <% @post.images.each do |image| %>
+        <%= image_tag image, class: "img-fluid" %>
+      <% end %>
+    <% else %>
+      <p> <%= @post.user.name %> choose not to attach any image </p>
+    <% end %>
+  </div>
+</div>
 
-<% if @post.images.attached? %>
-  <% @post.images.each do |image| %>
-    <%= image_tag image, class: "img-fluid" %>
-  <% end %>
-<% else %>
-  <p> @post.user.name choose not to attach any image </p>
-<% end %>
