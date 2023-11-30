@@ -1,53 +1,58 @@
-
-<%= link_to posts_path do %>
-        <div class=“triangle-btn”></div>
-      <% end %>
-
-<hr>
-
-<div class="pfp show">
-  <strong style="color: red;"><img src="path/to/avatar.jpg" alt="Avatar"></strong>
-</div>
-
-<hr>
-
-<hr>
-
-<div class="container show-intro">
-    <h1>Hi <%= current_user.name %> <h1>
-    <h1> This is <%= @post.user.name %> <h1>
-    <h2><%= welcome_message %></h2>
-    <h3>Zipcode: <%= @post.user.zipcode %></p>
-</div>
-
-<hr>
+<div class= "container show">
 
 
-<div class="container">
-  <div class="post-user-info">
-    <h4> <strong> <%= @post.user.name %>'s struggle </strong></h4>
-    <h4> <%= @post.description %> </h4>
+
+  <%= link_to posts_path do %>
+          <div class="triangle-btn"></div>
+        <% end %>
+
+
+
+  <div class="pfp show">
+    <strong style="color: red;"><img src="path/to/avatar.jpg" alt="Avatar"></strong>
   </div>
-  <div class="btn-cta">
-    <%= link_to button_text %>
-  </div>
-</div>
 
-<hr>
 
-<div class="container images">
-  <div class="images-header">
-    <h4>attached images</h4>
+
+
+
+  <div class="show-intro">
+      <h1>Hi <%= current_user.name %> <h1>
+      <h1> This is <%= @post.user.name %> <h1>
+      <h2><%= welcome_message %> <strong>#<%= @post.category %></strong>  </h2>
+      <h3>Zipcode: <%= @post.user.zipcode %></p>
   </div>
-  <% if @post.photos.attached? %>
-    <% @post.photos.each do |image| %>
-    <div class="attached-image">
-      <%= cl_image_tag image, class: "img-fluid" %>
+
+
+
+
+  <div class="container user-info">
+    <div class="post-user-info">
+      <h4> <strong> <%= @post.user.name %>'s struggle </strong></h4>
+      <h4 class="h4-description"> <%= @post.description %> </h4>
     </div>
-    <% end %>
-  <% else %>
-    <p> <%= @post.user.name %> choosed not to attach any image </p>
-  <% end %>
-</div>
+    <div class="btn-cta">
+      <%= link_to button_text %>
+    </div>
+  </div>
 
-<hr>
+
+
+  <div class="container images">
+    <div class="images-header">
+      <h4 class="h4-attached">attached images</h4>
+    </div>
+    <hr>
+    <% if @post.photos.attached? %>
+      <% @post.photos.each do |image| %>
+      <div class="attached-image">
+        <%= cl_image_tag image, class: "img-fluid" %>
+      </div>
+      <% end %>
+    <% else %>
+      <p> <%= @post.user.name %> choosed not to attach any image </p>
+    <% end %>
+  </div>
+
+
+</div>
