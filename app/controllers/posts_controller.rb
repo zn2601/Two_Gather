@@ -15,9 +15,11 @@ class PostsController < ApplicationController
       placenames = Mapbox::Geocoder.geocode_forward(params[:query])
       @center = {
         lat: placenames[0]["features"][0]["center"][1],
-        lng: placenames[0]["features"][0]["center"][0]
+        lng: placenames[0]["features"][0]["center"][0],
+        zoom: 13
       }
-
+    else
+      @center = { lat: 52.341199, lng: 4.856931, zoom: 9 }
     end
   end
 
