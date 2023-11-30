@@ -5,8 +5,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @book.user = current_user
     if @post.save
-      redirect_to posts_path(@post)
+      redirect_to posts_path(@post), notice: "Post created!"
     else
       render :new, status: :unprocessable_entity
     end
