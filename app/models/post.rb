@@ -8,4 +8,5 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { minimum: 20, maximum: 70 }
   validates :description, presence: true, length: { minimum: 150, maximum: 400 }
   validates :asker, presence: true
+  
 end
