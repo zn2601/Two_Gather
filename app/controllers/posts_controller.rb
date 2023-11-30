@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
 
   def index
+    Mapbox.access_token = ENV['MAPBOX_API_KEY']
+
     @posts = Post.all
     @markers = @posts.map do |post|
       {
@@ -8,6 +10,14 @@ class PostsController < ApplicationController
         lng: post.user.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {post: post})
       }
+    end
+    if params[:query].present?
+      placenames = Mapbox::Geocoder.geocode_forward(params[:query])
+      @center = {
+        lat: placenames[0]["features"][0]["center"][1],
+        lng: placenames[0]["features"][0]["center"][0]
+      }
+
     end
   end
 

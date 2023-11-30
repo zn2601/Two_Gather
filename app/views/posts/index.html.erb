@@ -1,7 +1,15 @@
-<div class="container-map">
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="container">
+  <div class="container-map d-flex justify-content-center ">
+    <div class="container zipcode">
+      <%= form_tag posts_path, method: :get do %>
+      <p id="zipcode-placeholder"><%= text_field_tag :query, params[:query], placeholder: "start searching with you zipcode" %></p>
+      <% end %>
+    </div>
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-center-value="<%= @center.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
 </div>
-
