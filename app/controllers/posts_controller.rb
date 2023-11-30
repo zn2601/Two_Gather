@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def index
     @posts = Post.all
     @markers = @posts.map do |post|
@@ -22,14 +22,14 @@ class PostsController < ApplicationController
     end
     render locals: { welcome_message: welcome_message, button_text: button_text }
   end
-  
+
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
-    @book.user = current_user
+    @post.user = current_user
     if @post.save
       redirect_to posts_path(@post), notice: "Post created!"
     else
@@ -42,5 +42,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description, :category, :asker, photos: [])
   end
-  
+
 end
