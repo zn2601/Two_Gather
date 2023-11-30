@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :reviews_as_asker, through: :posts, source: :reviews
   geocoded_by :zipcode
   after_validation :geocode, if: :will_save_change_to_zipcode?
+
+  
 end

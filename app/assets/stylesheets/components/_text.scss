@@ -1,11 +1,17 @@
 #zipcode-placeholder {
   color: #9B9292;
   text-align: center;
-  font-size: 13px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 55px;
   margin-right: 55px;
+  input, input:focus, input:active, input:visited, input:hover {
+    background: transparent !important;
+    border: 0 !important;
+    outline: none !important;
+
+  }
 }
 
 #asker-placeholder {
