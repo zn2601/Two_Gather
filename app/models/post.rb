@@ -3,10 +3,10 @@ class Post < ApplicationRecord
   has_many :reviews
   has_many_attached :photos
 
-  CATEGORIES = ["gardening", "cooking", "DIY", "cleaning"]
+  CATEGORIES = ["gardening", "cooking", "DIY", "cleaning", "household", "other"]
   validates :category, inclusion: { in: CATEGORIES }
   validates :title, presence: true, length: { minimum: 20, maximum: 70 }
   validates :description, presence: true, length: { minimum: 150, maximum: 400 }
   validates :asker, presence: true
-  
+
 end
