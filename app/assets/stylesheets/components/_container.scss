@@ -46,7 +46,7 @@
 
 .container.create-post {
   width: 340px;
-  height: 528px;
+  min-height: 528px;
   flex-shrink: 0;
   border-radius: 20px;
   background: #C3B6EC;
