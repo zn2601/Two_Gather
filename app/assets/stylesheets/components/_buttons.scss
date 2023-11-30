@@ -4,6 +4,7 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right:10px solid #05030C;
+  position: relative;
   top: 27px;
   left: 20px;
 }
@@ -35,5 +36,12 @@
 .create-btn {
   flex-shrink: 0;
   border-radius: 20px;
+  width: -webkit-fill-available;
+  border: none;
   background: #D5795D;
+  color: #FFFF;
+  font-weight: bold;
+  padding: 12px;
+  letter-spacing: .7px;
+  font-size: larger;
 }

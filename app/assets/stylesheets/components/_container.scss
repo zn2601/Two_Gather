@@ -52,6 +52,9 @@
   background: #C3B6EC;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   margin-top: 15px;
+  .form-label {
+    margin-left: 15px;
+  }
   .form {
     padding-top: 25px;
   }
@@ -77,7 +80,6 @@
   #post_category {
     border-radius: 20px;
     padding: 10px;
-    margin-top: 15px;
   }
   #post_photos {
     border-radius: 20px;

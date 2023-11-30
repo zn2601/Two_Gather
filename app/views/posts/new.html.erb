@@ -6,9 +6,9 @@
       <% end %>
       <h1>Create a post</h1>
       <hr>
-      <%= f.input :title, placeholder: 'post title', label: false, class: 'form-skinny' %>
+      <%= f.input :title, placeholder: 'post title', label: false %>
       <%= f.input :description, placeholder: 'post description... please explain your situation as concise as possible.', label: false %>
-      <%= f.input :category, as: :select, collection: ["gardening", "cooking", "DIY", "cleaning"], placeholder: '#...', label: false %>
+      <%= f.input :category, as: :select, collection: ["gardening", "cooking", "DIY", "cleaning"], placeholder: 'category' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
   </div>
