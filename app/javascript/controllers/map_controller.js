@@ -14,16 +14,17 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
-      zoom: 3,
-      center: [52.24764975, 5.541246849406163],
+      zoom: 3
     });
     this.#addMarkersToMap();
+    const bounds = new mapboxgl.LngLatBounds();
+      bounds.extend([4.856931, 52.341199]);
+      this.map.fitBounds(bounds, { padding: 200, maxZoom: 10, duration: 0 });
+
     if (this.centerValue) {
       const bounds = new mapboxgl.LngLatBounds();
       bounds.extend([this.centerValue.lng, this.centerValue.lat]);
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-    } else {
-      this.#fitMapToMarkers();
     }
   }
 

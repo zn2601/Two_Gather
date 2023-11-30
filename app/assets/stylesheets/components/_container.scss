@@ -46,4 +46,7 @@
   height: fit-content;
   flex-shrink: 0;
   position: relative;
+  bottom: -10px;
+  position: absolute;
+  z-index: 999;
 }
