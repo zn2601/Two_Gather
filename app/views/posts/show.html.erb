@@ -46,7 +46,7 @@
     <% if @post.photos.attached? %>
       <% @post.photos.each do |image| %>
       <div class="attached-image">
-        <%= cl_image_tag image, class: "img-fluid" %>
+        <%= cl_image_tag image.key, class: "img-fluid" %>
       </div>
       <% end %>
     <% else %>

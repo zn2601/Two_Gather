@@ -1,20 +1,27 @@
-<div class="container">
-  <div class="container-map d-flex justify-content-center ">
-    <div class="container zipcode">
-      <%= form_tag posts_path, method: :get do %>
-      <p id="zipcode-placeholder"><%= text_field_tag :query, params[:query], placeholder: "enter your zipcode" %></p>
-      <% end %>
-    </div>
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-center-value="<%= @center.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+<div class="container-map d-flex justify-content-center ">
+  <div class="container zipcode">
+    <%= form_tag posts_path, method: :get do %>
+    <p id="zipcode-placeholder"><%= text_field_tag :query, params[:query], placeholder: "enter your zipcode" %></p>
+    <% end %>
+  </div>
 
-    <div class="container navbar ">
-    <%# navbar with 4 icons with links to: profile dashboard, posts index, chat index, system settings %>
-    <%# in the middle 1 big round button to add new post %>
+  <div style="width: 400px; height: 800px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-center-value="<%= @center.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <div class="container role-toggle">
+    <div id="asker" class="orange">
+      <p id="asker-placeholder">asking for help</p>
+    </div>
+    <div id="helper" class="white">
+      <p id="helper-placeholder">providing help</p>
+    </div>
+  </div>
+
+  <div class="container navbar ">
     <div class="orange-bar">
       <div class="green-circle">
         <a href="/posts/new">
@@ -39,6 +46,4 @@
       </div>
     </div>
   </div>
-  </div>
-
 </div>
