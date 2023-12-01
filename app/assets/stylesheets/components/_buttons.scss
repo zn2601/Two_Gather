@@ -48,12 +48,14 @@
 }
 
 .btn-cta {
-  width: 314px;
+  position: relative;
+  top: 20px;
+  right: 20px;
+  width: 315px;
   height: 48px;
   flex-shrink: 0;
   border-radius: 0px 0px 20px 20px;
   background: #2CAA49;
-  margin-left: -11px;
   display: flex;
   justify-content: center;
   align-items: center;
