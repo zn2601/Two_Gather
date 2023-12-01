@@ -1,23 +1,15 @@
 <div class= "container show">
 
-
-
   <%= link_to posts_path do %>
           <div class="triangle-btn"></div>
         <% end %>
-
-
-
-
-
-
 
 
 <div class="show-intro">
   <h1>Hi, <%= current_user.name %> </h1>
   <h1> This is <%= @post.user.name %> </h1>
   <div id="pfp-show" style="position: relative; display: inline-block;">
-    <img src="path/to/avatar.jpg" alt="Avatar" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); border-radius: 50%; width: 50px; height: 50px;">
+    <img src="path/to/avatar.jpg" alt="Avatar" onerror="this.src='app/assets/images/default-avatar.jpg'" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); border-radius: 50%; width: 50px; height: 50px;">
   </div>
   <h2><%= welcome_message %> <strong>#<%= @post.category %></strong>  </h2>
   <h3>Zipcode: <%= @post.user.zipcode %></h3>
@@ -32,7 +24,7 @@
       <h4 class="h4-description"> <%= @post.description %> </h4>
     </div>
     <div class="btn-cta">
-      <%= link_to button_text %>
+      <%= link_to button_text, "#", class:"btn-cta-color"%>
     </div>
   </div>
 
