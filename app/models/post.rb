@@ -5,8 +5,7 @@ class Post < ApplicationRecord
 
   CATEGORIES = ["gardening", "cooking", "DIY", "cleaning", "household", "other"]
   validates :category, inclusion: { in: CATEGORIES }
-  validates :title, presence: true, length: { minimum: 20, maximum: 70 }
-  validates :description, presence: true, length: { minimum: 150, maximum: 400 }
+  validates :title, presence: true, length: { minimum: 10, maximum: 70 }
+  validates :description, presence: true, length: { minimum: 10, maximum: 300 }
   validates :asker, presence: true
-
 end
