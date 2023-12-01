@@ -14,18 +14,18 @@ Post.delete_all
 puts "deleting Posts"
 User.delete_all
 puts "creating Users"
-user1 = User.create(email: "zlatko@admin.com", password: "123123", name: "admin1", zipcode: "1071 ET")
-user2 = User.create(email: "anna@admin.com", password: "123123", name: "admin2", zipcode: "1021 GG")
-user3 = User.create(email: "vincent@admin.com", password: "123123", name: "admin3", zipcode: "1016 AA")
-user4 = User.create(email: "user4@admin.com", password: "123123", name: "admin4", zipcode: "1015 GN")
-user5 = User.create(email: "user5@admin.com", password: "123123", name: "admin5", zipcode: "1017 RV")
-user6 = User.create(email: "user6@admin.com", password: "123123", name: "admin6", zipcode: "1011 AK")
-user7 = User.create(email: "user7@admin.com", password: "123123", name: "admin7", zipcode: "1016 DX")
-user8 = User.create(email: "user8@admin.com", password: "123123", name: "admin8", zipcode: "1013 JW")
-user9 = User.create(email: "user9@admin.com", password: "123123", name: "admin9", zipcode: "1018 XA")
-user10 = User.create(email: "user10@admin.com", password: "123123", name: "admin10", zipcode: "1014 BV")
-user11 = User.create(email: "user11@admin.com", password: "123123", name: "admin11", zipcode: "1010 DK")
-user12 = User.create(email: "user12@admin.com", password: "123123", name: "admin12", zipcode: "1016 HE")
+user1 = User.create(email: "zlatko@admin.com", password: "123123", name: "Zlatko", zipcode: "1071 ET")
+user2 = User.create(email: "anna@admin.com", password: "123123", name: "Anna", zipcode: "1021 GG")
+user3 = User.create(email: "vincent@admin.com", password: "123123", name: "Vincent", zipcode: "1016 AA")
+user4 = User.create(email: "user4@admin.com", password: "123123", name: "Robert", zipcode: "1015 GN")
+user5 = User.create(email: "user5@admin.com", password: "123123", name: "Felipe", zipcode: "1017 RV")
+user6 = User.create(email: "user6@admin.com", password: "123123", name: "Riru", zipcode: "1011 AK")
+user7 = User.create(email: "user7@admin.com", password: "123123", name: "Rita", zipcode: "1016 DX")
+user8 = User.create(email: "user8@admin.com", password: "123123", name: "Tom", zipcode: "1013 JW")
+user9 = User.create(email: "user9@admin.com", password: "123123", name: "Sofia", zipcode: "1018 XA")
+user10 = User.create(email: "user10@admin.com", password: "123123", name: "Tobias", zipcode: "1014 BV")
+user11 = User.create(email: "user11@admin.com", password: "123123", name: "Nivea", zipcode: "1010 DK")
+user12 = User.create(email: "user12@admin.com", password: "123123", name: "Elena", zipcode: "1016 HE")
 
 puts "creating posts"
 post1 =
