@@ -17,6 +17,16 @@ puts "creating Users"
 user1 = User.create(email: "zlatko@admin.com", password: "123123", name: "admin1", zipcode: "1071 ET")
 user2 = User.create(email: "anna@admin.com", password: "123123", name: "admin2", zipcode: "1021 GG")
 user3 = User.create(email: "vincent@admin.com", password: "123123", name: "admin3", zipcode: "1016 AA")
+user4 = User.create(email: "user4@admin.com", password: "123123", name: "admin4", zipcode: "1015 GN")
+user5 = User.create(email: "user5@admin.com", password: "123123", name: "admin5", zipcode: "1017 RV")
+user6 = User.create(email: "user6@admin.com", password: "123123", name: "admin6", zipcode: "1011 AK")
+user7 = User.create(email: "user7@admin.com", password: "123123", name: "admin7", zipcode: "1016 DX")
+user8 = User.create(email: "user8@admin.com", password: "123123", name: "admin8", zipcode: "1013 JW")
+user9 = User.create(email: "user9@admin.com", password: "123123", name: "admin9", zipcode: "1018 XA")
+user10 = User.create(email: "user10@admin.com", password: "123123", name: "admin10", zipcode: "1014 BV")
+user11 = User.create(email: "user11@admin.com", password: "123123", name: "admin11", zipcode: "1010 DK")
+user12 = User.create(email: "user12@admin.com", password: "123123", name: "admin12", zipcode: "1016 HE")
+
 puts "creating posts"
 post1 =
 Post.create!(
@@ -38,7 +48,7 @@ Post.create!(
 
 Post.create!(
   title: "Babysitter Cancellation",
-  category: "parenting",
+  category: "other",
   description: "Urgently need a babysitter tonight! Last-minute cancellation, and we have plans. Our kids are well-behaved; just need someone trustworthy for a few hours. Compensation provided!",
   user_id: user3.id,
   solved: false,
@@ -126,7 +136,6 @@ Post.create!(
   asker: true
 )
 puts "creating posts"
-
 
 Review.create!(user_id: user1.id, post_id: post1.id, asker_rating: 5, helper_rating: 5, asker_comment: "Great help!", helper_comment: "Great help!")
 puts "Done creating"
