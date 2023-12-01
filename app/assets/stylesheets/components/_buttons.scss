@@ -54,9 +54,15 @@
   border-radius: 0px 0px 20px 20px;
   background: #2CAA49;
   margin-left: -11px;
-  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+
+.btn-cta-color{
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+  text-decoration: none !important;
 }
