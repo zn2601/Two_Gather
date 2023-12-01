@@ -29,13 +29,20 @@
   svg {
     flex: 1;
   }
-  // .navbar-left {
-  //   flex: 1;
-  //   justify-content: left;
-  //   top: ;
-  // }
-  // .navbar-right {
-  //   flex: 1;
-  //   justify-content: right;
-  // }
+  .navbar-right{
+    margin-right: 17px;
+    padding: 6px;
+    a {
+      text-decoration: none;
+      margin-left: 25px;
+    }
+  }
+  .navbar-left {
+    margin-left: 17px;
+    padding: 6px;
+    a {
+      text-decoration: none;
+      margin-right: 25px;
+    }
+  }
 }
