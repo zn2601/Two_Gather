@@ -8,13 +8,16 @@
   position: absolute;
   top: 10px;
   z-index: 999;
-
+  #zipcode-placeholder {
+    font-size: 17px;
+    text-align: left;
+  }
 }
 
 .container.role-toggle {
   display: flex;
   width: 327px;
-  height: 32px;
+  height: 40px;
   padding: 2px;
   justify-content: center;
   align-items: flex-start;
@@ -23,7 +26,6 @@
   top: 75px;
   .orange-toggle{
     display: flex;
-    padding: 8px 37.5px 8px 39px;
     justify-content: center;
     align-items: center;
     flex: 1 0 0;
@@ -33,13 +35,19 @@
   }
   .white-toggle{
     display: flex;
-    padding: 8px 39.5px 8px 40px;
     justify-content: center;
     align-items: center;
     flex: 1 0 0;
     align-self: stretch;
     border-radius: 8px;
     background: #F8F7FD;
+  }
+  #helper-placeholder {
+    font-size: 15px;
+    color: grey;
+  }
+  #asker-placeholder {
+    font-size: 15px;
   }
 }
 
