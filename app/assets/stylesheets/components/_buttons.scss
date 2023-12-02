@@ -17,7 +17,8 @@
   flex-shrink: 0;
   border-radius: 20px;
   background: #D5795D;
-  a {
+  text-decoration: none;
+  p {
     text-decoration: none;
     position: relative;
     top: 22px;
@@ -32,6 +33,10 @@
     width: 46px;
     height: 46px;
   }
+}
+
+.home-button a {
+  text-decoration: none;
 }
 
 .create-btn {
