@@ -1,4 +1,5 @@
 <%= simple_form_for [@post, @review] do |f| %>
+<%= hidden_field_tag :user_id, params[:user_id] %>
   <div class="container create-review">
     <div class="form">
       <%= link_to post_path(@post) do %>

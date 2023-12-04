@@ -2,6 +2,11 @@ class ReviewsController < ApplicationController
 
 before_action :set_post, only: %i[new create]
 
+def index
+  @post = Post.find(params[:post_id])
+  @reviews = @post.reviews
+end
+
   def new
     @review = Review.new
     @post = Post.find(params[:post_id])
@@ -11,7 +16,8 @@ before_action :set_post, only: %i[new create]
   def create
     @review = Review.new(review_params)
     @review.post = @post
-    if @review.save
+    @review.user = @user
+    if @review.save!
       # Update the solved attribute of the post based on the mark_as_checked parameter
       if @review.mark_as_checked
         @post.update(solved: true)
@@ -31,4 +37,9 @@ before_action :set_post, only: %i[new create]
   def review_params
     params.require(:review).permit(:rating, :asker_comment, :helper_comment, :mark_as_checked)
   end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
 end
