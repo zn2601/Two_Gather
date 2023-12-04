@@ -17,16 +17,19 @@ end
     @review = Review.new(review_params)
     @review.post = @post
     @review.user = @user
-    if @review.save!
-      # Update the solved attribute of the post based on the mark_as_checked parameter
+
+    if @review.save
       if @review.mark_as_checked
         @post.update(solved: true)
+        @post.destroy
       end
+
       redirect_to post_path(@post), notice: "Review created successfully."
     else
       render :new, alert: "Review could not be created."
     end
   end
+
 
   private
 

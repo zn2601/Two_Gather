@@ -26,7 +26,7 @@
         </div>
         <% if current_user == @asker %>
           <div class="review_bottom_checkbox">
-            <%# <%= f.input :mark_as_checked, as: :boolean, label: 'Mark as checked' %>
+            <%= f.input :mark_as_checked, as: :boolean, label: 'Mark as checked'%>
           </div>
         <% end %>
         <%= f.submit class: 'create-btn'%>
