@@ -112,3 +112,18 @@
   font-size: 25px;
   text-decoration: none !important;
 }
+
+.review-btn {
+  width: 108px;
+  height: 48px;
+  flex-shrink: 0;
+  background-color: #D5795D;
+  border-radius: 20px;
+  h3 {
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+}

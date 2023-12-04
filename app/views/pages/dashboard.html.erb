@@ -1,0 +1,59 @@
+<div class="container-dashboard">
+  <%= link_to "log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+  <div class="dashboard-greeting ">
+    <h1>Hello,</h1>
+    <h1><%= current_user.name %></h1>
+    <h2>this is your profile</h2>
+  </div>
+
+  <div class="dashboard-photo-review">
+    <div class="dashboard-photo-left">
+      <img src="https://source.unsplash.com/random/500x500/?portrait" alt="Avatar" class="photo">
+    </div>
+    <div class="dashboard-review-right">
+      <h2>Love from your community</h2>
+      <div class="review-rating">
+        <span onclick="gfg(1)"
+              class="star">❤
+        </span>
+        <span onclick="gfg(2)"
+              class="star">❤
+        </span>
+        <span onclick="gfg(3)"
+              class="star">❤
+        </span>
+        <span onclick="gfg(4)"
+              class="star">❤
+        </span>
+        <span onclick="gfg(5)"
+              class="star">❤
+        </span>
+        <h3 id="output">
+              Rating is: 0/5
+          </h3>
+    </div>
+      <h3>Keep up the good work!</h3>
+    </div>
+  </div>
+
+  <div class="dashboard-about-me">
+    <h2>About me:</h2>
+    <p><%= current_user.about_me %></p>
+  </div>
+
+  <div class="dashboard-review">
+    <h2>Reviews</h2>
+    <div class="review-text-btn">
+      <div class="review-text">
+        <h3>You helped <%= current_user.name %></h3>
+        <p>Time to leave review!</p>
+      </div>
+      <%= link_to dashboard_path, class: "text-decoration-none" do %>
+      <div class="review-btn">
+      <h3>reviews</h3>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+<div>
