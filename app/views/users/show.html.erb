@@ -15,11 +15,18 @@
 
 <div class= "Reviews">
   <h2> Reviews </h2>
-<ul>
-  <% (@reviews + @reviews_as_asker).sort_by(&:created_at).reverse.each do |review| %>
-    <li>
-      <h3><%= @review.user.name %> </h3>
-      <p><%= @review.content %></p>
-    </li>
+  <ul>
+  <% @user.reviews.each do |review| %>
+    <h3><%= review.post.user.name%> </h3>
+    <p><%= review.asker_comment %></p>
+    <p><%= review.asker_rating %></p>
+    <% end %>
+    <% @user.reviews_as_asker.each do |review| %>
+    <% if review.helper_comment %>
+    <h3><%= review.user.name%> </h3>
+    <p><%= review.helper_comment %></p>
+    <p><%= review.helper_rating %></p>
+    <% end %>
   <% end %>
 </ul>
+</div>
