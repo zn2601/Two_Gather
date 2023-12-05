@@ -10,5 +10,7 @@ class User < ApplicationRecord
   geocoded_by :zipcode
   after_validation :geocode, if: :will_save_change_to_zipcode?
 
-  
+    # def average_rating
+    #   reviews_as_asker.average(:rating).to_f.round(2)
+    # end
 end
