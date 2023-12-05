@@ -8,7 +8,11 @@
 
   <div class="dashboard-photo-review">
     <div class="dashboard-photo-left">
-      <img src="https://source.unsplash.com/random/500x500/?portrait" alt="Avatar" class="photo">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "photo" %> # this is the cloudinary image tag
+      <% else %>
+        <%= image_tag "https://www.creativefabrica.com/wp-content/uploads/2022/12/09/Wicked-Clown-Laughing-Evil-Female-51256887-1-580x580.png", class: "photo" %>
+      <% end %>
     </div>
     <div class="dashboard-review-right">
       <h2>Love from your community</h2>
