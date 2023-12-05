@@ -15,15 +15,19 @@
 }
 
 .mapboxgl-popup-close-button {
-  color: white !important;
+  margin: 10px !important;
+  color: black !important;
   font-size: 40px !important;
-  font-weight: bold !important;
+  font-weight: 400 !important;
 }
+.info-window-text {
+  .popup-text-name {
+    font-size: 30px;
+    font-weight: 600;
+  }
 
-.popup-text-name {
-
-}
-
-.popup-text-description {
-  
+  .Popup-text-description {
+    font-size: 20px;
+    font-weight: 500;
+  }
 }
