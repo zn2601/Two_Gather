@@ -16,12 +16,10 @@ end
   def create
     @review = Review.new(review_params)
     @review.post = @post
-    @review.user = @user
 
     if @review.save
       if @review.mark_as_checked
         @post.update(solved: true)
-        @post.destroy
       end
 
       redirect_to post_path(@post), notice: "Review created successfully."
@@ -38,7 +36,7 @@ end
   end
 
   def review_params
-    params.require(:review).permit(:rating, :asker_comment, :helper_comment, :mark_as_checked)
+    params.require(:review).permit(:asker_rating, :helper_rating, :asker_comment, :helper_comment, :mark_as_checked, :user_id)
   end
 
   def set_user
