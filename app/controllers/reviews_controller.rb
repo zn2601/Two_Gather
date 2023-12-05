@@ -11,6 +11,14 @@ end
     @review = Review.new
     @post = Post.find(params[:post_id])
     @asker = @post.user
+    @chatrooms = Chatroom.where(asker: current_user) + Chatroom.where(helper: current_user)
+    @users = @chatrooms.map do |chatroom|
+      if chatroom.asker == current_user
+        chatroom.helper
+      else
+        chatroom.asker
+      end
+    end
   end
 
   def create

@@ -22,7 +22,7 @@
         </div>
 
         <div class ="review_bottom_reviewee">
-          <%= f.input :user_id, as: :select, collection: User.all, prompt: 'Select a user', label: false %>
+          <%= f.input :user_id, as: :select, collection: @users, prompt: 'Select a user', label: false %>
         </div>
 
         <div class= "review_bottom_rating">
