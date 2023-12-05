@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES }
   validates :title, presence: true, length: { minimum: 10, maximum: 70 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
-  validates :asker, presence: true
+  validates :asker, inclusion: [true, false]
 end

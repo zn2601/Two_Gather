@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @chatroom = Chatroom.new
     @post = Post.find(params[:id])
     if @post.asker?
       welcome_message = "They would really appreciate some help with "
