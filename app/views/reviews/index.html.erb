@@ -1,3 +1,6 @@
-<%= @post.reviews.each do |review| %>
-  <p><%= review.content %></p>
+<% @post.reviews.each do |review| %>
+  <p><%= review.asker_comment %></p>
+  <p><%= review.helper_rating %></p>
+  <p><%= review.helper_comment %></p>
+  <p><%= review.asker_rating %></p>
 <% end %>
