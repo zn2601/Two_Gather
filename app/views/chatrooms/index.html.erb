@@ -1,0 +1,13 @@
+<% @chatrooms.each do |chat| %>
+  <% if chat.asker == current_user %>
+    <%= link_to chat.helper.name, chatroom_path(chat) %>
+    <% last_user = chat.messages.last.user  %>
+    <%= last_user == current_user ? "you:" : last_user.name %>
+    <%= chat.messages.last.content %>
+  <% else %>
+    <%= link_to chat.asker.name, chatroom_path(chat) %>
+    <% last_user = chat.messages.last.user  %>
+    <%= last_user == current_user ? "you:" : last_user.name %>
+    <%= chat.messages.last.content %>
+  <% end %>
+<% end %>
