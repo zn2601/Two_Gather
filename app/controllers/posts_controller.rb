@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
     Mapbox.access_token = ENV['MAPBOX_API_KEY']
-    @posts = Post.where(solved: false)
-
+    @posts = Post.where(solved: false).order(created_at: :asc)
     @markers = @posts.map do |post|
       {
         lat: post.user.latitude,

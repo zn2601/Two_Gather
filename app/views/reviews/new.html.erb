@@ -15,14 +15,22 @@
         <hr>
         <div class= "review_bottom_box">
           <% if current_user == @asker %>
-            <%= f.input :asker_comment, placeholder: 'please leave a review for your helper', label: false %>
+            <%= f.input :asker_comment, placeholder: 'Please leave a review for your helper', label: false %>
           <% else %>
-            <%= f.input :helper_comment, placeholder: 'please leave a review for your asker', label: false %>
+            <%= f.input :helper_comment, placeholder: 'Please leave a review for your asker', label: false %>
           <% end  %>
         </div>
 
+        <div class ="review_bottom_reviewee">
+          <%= f.input :user_id, as: :select, collection: User.all, prompt: 'Select a user', label: false %>
+        </div>
+
         <div class= "review_bottom_rating">
-          <%= f.input :asker_rating, as: :select, collection: 1..5, prompt: 'please choose a rating', label: false %>
+          <% if current_user == @asker %>
+            <%= f.input :helper_rating, as: :select, collection: 1..5, prompt: 'Please choose a rating', label: false %>
+          <% else %>
+            <%= f.input :asker_rating, as: :select, collection: 1..5, prompt: 'Please choose a rating', label: false %>
+          <% end %>
         </div>
         <% if current_user == @asker %>
           <div class="review_bottom_checkbox">
