@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
-
   def index
     Mapbox.access_token = ENV['MAPBOX_API_KEY']
-
     @posts = Post.where(solved: false)
     @markers = @posts.map do |post|
       {
@@ -27,7 +25,6 @@ class PostsController < ApplicationController
     @chatroom = Chatroom.new
     @post = Post.find(params[:id])
     @existing_chat = (find_post_user_chatrooms(@post) & find_current_user_chatrooms).first if current_user
-
     if @post.asker?
       welcome_message = "They would really appreciate some help with "
       button_text = "Help out!"
