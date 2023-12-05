@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     Mapbox.access_token = ENV['MAPBOX_API_KEY']
     @posts = Post.where(solved: false)
+
     @markers = @posts.map do |post|
       {
         lat: post.user.latitude,
@@ -42,6 +43,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.solved = false
     if @post.save
       redirect_to post_path(@post), notice: "Post created!"
     else
