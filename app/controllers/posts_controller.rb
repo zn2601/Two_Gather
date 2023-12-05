@@ -1,9 +1,7 @@
 class PostsController < ApplicationController
-
   def index
     Mapbox.access_token = ENV['MAPBOX_API_KEY']
-
-    @posts = Post.where(solved: false)
+    @posts = Post.where(solved: false).order(created_at: :asc)
     @markers = @posts.map do |post|
       {
         lat: post.user.latitude,
@@ -24,7 +22,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @chatroom = Chatroom.new
     @post = Post.find(params[:id])
+    @existing_chat = (find_post_user_chatrooms(@post) & find_current_user_chatrooms).first if current_user
     if @post.asker?
       welcome_message = "They would really appreciate some help with "
       button_text = "Help out!"
@@ -42,6 +42,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.solved = false
     if @post.save
       redirect_to post_path(@post), notice: "Post created!"
     else
@@ -55,4 +56,15 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :description, :category, :asker, photos: [])
   end
 
+  def find_current_user_chatrooms
+    current_user_as_asker = Chatroom.all.select { |chat| chat.asker == current_user }
+    current_user_as_helper = Chatroom.all.select { |chat| chat.helper == current_user }
+    current_user_as_asker + current_user_as_helper
+  end
+
+  def find_post_user_chatrooms(post)
+    post_user_as_asker = Chatroom.all.select { |chat| chat.asker == post.user }
+    post_user_as_helper = Chatroom.all.select { |chat| chat.helper == post.user }
+    post_user_as_asker + post_user_as_helper
+  end
 end
