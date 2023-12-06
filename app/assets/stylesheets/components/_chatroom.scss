@@ -1,3 +1,4 @@
+// CHATROOM SHOW
 .chatroom {
   background: white;
   margin-top: 9px;
@@ -28,15 +29,25 @@
     padding: 1rem;
   }
   #new_message {
-    border-top: 1px solid $gray-200;
-    padding: 1rem;
-
     .form-group {
       margin-bottom: 0;
+    }
+    .btn {
+      background-color: #D5795D;
+      border-radius: 0px 15px 15px 0px;
+      border-color: #D5795D;
     }
   }
 }
 
+.message_content {
+  .form-control {
+    border-radius: 20px 0px 0px 20px;
+    background-color: #ffffff;
+  }
+}
+
+// CHATROOM INDEX
 .chat-all-img {
   img {
     height: 70px;
