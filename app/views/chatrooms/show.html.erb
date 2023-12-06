@@ -3,13 +3,16 @@
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
   <%# if current_user is asker display @chatroom.helper.name %>
-  <% if current_user == @chatroom.helper %>
-    <h1>Chat with <%= @chatroom.asker.name %></h1>
-  <% else %>
-    <h1>Chat with <%= @chatroom.helper.name %></h1>
-  <% end %>
-
-  <%= link_to "go back", dashboard_path %>
+  <div class="chat-top">
+    <div class="chat-top-left">
+      <% if current_user == @chatroom.helper %>
+        <h1>Chat with <%= @chatroom.asker.name %></h1>
+      <% else %>
+        <h1>Chat with <%= @chatroom.helper.name %></h1>
+      <% end %>
+    </div>
+    <div class="chat-top-right"><%= link_to "go back", dashboard_path %></div>
+  </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -25,7 +28,6 @@
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
   <%= f.input :content,
     label: false,
-    placeholder: "message #{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
