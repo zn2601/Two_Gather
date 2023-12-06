@@ -28,3 +28,17 @@
     }
   }
 }
+
+.chat-all-img {
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    margin: 20px;
+  }
+}
+
+.container-chatroom {
+  display: flex;
+  justify-content: center;
+}
