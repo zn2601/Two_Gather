@@ -3,10 +3,12 @@ class PostsController < ApplicationController
     Mapbox.access_token = ENV['MAPBOX_API_KEY']
     @posts = Post.where(solved: false).order(created_at: :asc)
     @markers = @posts.map do |post|
+      type = post.asker ? "asker" : "helper"
       {
         lat: post.user.latitude,
         lng: post.user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {post: post})
+        info_window_html: render_to_string(partial: "info_window", locals: {post: post}),
+        type: type
       }
     end
     if params[:query].present?
