@@ -9,14 +9,16 @@
   width: 70%;
   max-width: 400px;
   border-radius: 4px;
-  padding: 8px;
+  padding: 10px;
   min-height: 80px;
 }
 
 .sender-style {
-  background-color: lightcoral;
+  background-color: #94D2FF;
+  border-radius: 20px 20px 0px;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: #D2C4FF;
+  border-radius: 20px 20px 20px 0px;
 }
