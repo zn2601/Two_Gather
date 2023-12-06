@@ -31,7 +31,7 @@
     <div class="btn-end">
       <div class="btn-cta">
         <% if @existing_chat %>
-          <%= link_to "chat", chatroom_path(@existing_chat) %>
+          <%= link_to "", chatroom_path(@existing_chat) %>
         <% else %>
           <%= simple_form_for @chatroom do |f| %>
             <% if @post.asker %>
@@ -41,7 +41,7 @@
               <%= f.input :helper_id, as: :hidden, input_html: { value: @post.user.id} %>
               <%= f.input :asker_id, as: :hidden, input_html: { value: current_user.id} %>
             <% end %>
-            <%= f.button :button %>
+            <%= f.button :button, 'Reach me' %>
           <% end %>
         <% end %>
       </div>
@@ -58,7 +58,7 @@
           </div>
           <% end %>
         <% else %>
-          <p><%= @post.user.name %> choosed not to attach any image</p>
+          <p><%= @post.user.name %> chose not to attach any image</p>
         <% end %>
       </div>
     </div>
