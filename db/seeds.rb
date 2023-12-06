@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
 
 Review.delete_all
 puts "deleting reviews"
@@ -14,18 +15,65 @@ Post.delete_all
 puts "deleting Posts"
 User.delete_all
 puts "creating Users"
-user1 = User.create(email: "zlatko@admin.com", password: "123123", name: "Zlatko", zipcode: "1071 ET")
-user2 = User.create(email: "anna@admin.com", password: "123123", name: "Anna", zipcode: "1021 GG")
-user3 = User.create(email: "vincent@admin.com", password: "123123", name: "Vincent", zipcode: "1016 AA")
-user4 = User.create(email: "user4@admin.com", password: "123123", name: "Robert", zipcode: "1015 GN")
-user5 = User.create(email: "user5@admin.com", password: "123123", name: "Felipe", zipcode: "1017 RV")
-user6 = User.create(email: "user6@admin.com", password: "123123", name: "Riru", zipcode: "1011 AK")
-user7 = User.create(email: "user7@admin.com", password: "123123", name: "Rita", zipcode: "1016 DX")
-user8 = User.create(email: "user8@admin.com", password: "123123", name: "Tom", zipcode: "1013 JW")
-user9 = User.create(email: "user9@admin.com", password: "123123", name: "Sofia", zipcode: "1018 XA")
-user10 = User.create(email: "user10@admin.com", password: "123123", name: "Tobias", zipcode: "1014 BV")
-user11 = User.create(email: "user11@admin.com", password: "123123", name: "Nivea", zipcode: "1010 DK")
-user12 = User.create(email: "user12@admin.com", password: "123123", name: "Elena", zipcode: "1016 HE")
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697783736/l7u70pgpxnsy1boxbl8u.jpg")
+user1 = User.create(email: "zlatko@admin.com", password: "123123", name: "Zlatko", zipcode: "1071 ET", about_me: "Hello neighbors! I'm Zlatko, your friendly organizer and event planner. From block parties to community clean-ups, I'm here to turn ideas into reality and create a vibrant neighborhood where everyone feels involved. Let's plan and celebrate together!")
+user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user1.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/111053814?v=4")
+user2 = User.create(email: "anna@admin.com", password: "123123", name: "Anna", zipcode: "1021 GG", about_me: "Hello, fellow neighbors! I'm Anna, your friendly fitness fanatic. Whether you need a jogging buddy or someone to join your home workout, I'm here to promote health and well-being in our community. Let's stay active together!")
+user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user2.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/144326573?v=4")
+user3 = User.create(email: "vincent@admin.com", password: "123123", name: "Vincent", zipcode: "1016 AA", about_me: "Hey neighbors! I'm Vincent, your resident dog lover and aspiring chef. Need a furry friend walked or a homemade meal? I'm your person! Let's create a vibrant community where kindness and assistance are the main ingredients.")
+user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user3.save
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696579981/brnudrd8aayjmsfblj14.jpg")
+user4 = User.create(email: "user4@admin.com", password: "123123", name: "Robert", zipcode: "1015 GN", about_me: "Hi there! 👋 I'm Robert, your friendly neighborhood enthusiast! Whether it's watering plants, fixing a leaky faucet, or just lending a hand, count on me to make our community a better place, one task at a time. Let's build a stronger, more connected neighborhood together!")
+user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user4.save
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696788410/n9jejlovor1umficj3c5.jpg")
+user5 = User.create(email: "user5@admin.com", password: "123123", name: "Felipe", zipcode: "1017 RV", about_me: "Hey there! I'm Felipe, your local music maestro. Whether you need a guitar lesson or someone to jam with, I'm here to harmonize our community. Let's make beautiful music and lasting connections together!")
+user5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user5.save
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696857181/df6mf1n0gbv93bdqez2k.jpg")
+user6 = User.create(email: "user6@admin.com", password: "123123", name: "Riru", zipcode: "1011 AK", about_me: "Greetings, neighbors! I'm Riru, a DIY enthusiast and problem solver. From fixing squeaky doors to tackling minor home repairs, count on me to keep our community in tip-top shape. Let's build a neighborhood where everyone feels supported and secure.")
+user6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user6.save
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696848020/mr3yz2xiyfdubzp4cq7o.jpg")
+user7 = User.create(email: "user7@admin.com", password: "123123", name: "Rita", zipcode: "1016 DX", about_me: "Greetings! I'm Rita, your go-to person for all things handy. From assembling furniture to organizing community events, I'm here to foster a sense of togetherness. Let's make our neighborhood a place where everyone feels heard and supported!")
+user7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user7.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/147380890?v=4")
+user8 = User.create(email: "user8@admin.com", password: "123123", name: "Tom", zipcode: "1013 JW", about_me: "Greetings from your resident bookworm! I'm Tom, always ready to recommend a good read or help organize a community book club. Let's create a literary haven where neighbors bond over stories and shared interests.")
+user8.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user8.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/62124863?v=4")
+user9 = User.create(email: "user9@admin.com", password: "123123", name: "Sofia", zipcode: "1018 XA", about_me: "I'm Sofia, your arts and crafts aficionado. From hosting DIY workshops to helping with creative projects, I'm here to add a touch of color and creativity to our community. Let's craft a close-knit neighborhood!")
+user9.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user9.save
+
+file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697736062/nz0llrdssotizn0hrtno.jpg")
+user10 = User.create(email: "user10@admin.com", password: "123123", name: "Tobias", zipcode: "1014 BV", about_me: "Hey, it's Tobias, your resident chef with a passion for cooking up community connections. Whether you need a hand in the kitchen or want to share a meal, count on me to spice up our neighborhood with good food and great company!")
+user10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user10.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/143593700?v=4")
+user11 = User.create(email: "user11@admin.com", password: "123123", name: "Nivea", zipcode: "1010 DK", about_me: "Howdy! I'm Nivea, your local green thumb with a passion for gardening. Whether you need help planting flowers or advice on your tomato plants, I'm here to cultivate a sense of belonging in our community. Let's grow together!")
+user11.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user11.save
+
+file = URI.open("https://avatars.githubusercontent.com/u/147411473?v=4")
+user12 = User.create(email: "user12@admin.com", password: "123123", name: "Eleni", zipcode: "1016 HE", about_me: "Hi everyone! I'm Eleni, a tech guru with a knack for troubleshooting. From setting up your new gadgets to solving computer glitches, I'm here to make our community tech-savvy and connected. Let's navigate the digital world together!")
+user12.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user12.save
 
 puts "creating posts"
 post1 =
