@@ -66,7 +66,7 @@ user10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user10.save
 
 file = URI.open("https://avatars.githubusercontent.com/u/143593700?v=4")
-user11 = User.create(email: "user11@admin.com", password: "123123", name: "Nivea", zipcode: "1010 DK", about_me: "Howdy! I'm Nivea, your local green thumb with a passion for gardening. Whether you need help planting flowers or advice on your tomato plants, I'm here to cultivate a sense of belonging in our community. Let's grow together!")
+user11 = User.create(email: "user11@admin.com", password: "123123", name: "Nivea", zipcode: "1017 XN", about_me: "Howdy! I'm Nivea, your local green thumb with a passion for gardening. Whether you need help planting flowers or advice on your tomato plants, I'm here to cultivate a sense of belonging in our community. Let's grow together!")
 user11.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user11.save
 
@@ -113,12 +113,12 @@ Post.create!(
 )
 
 Post.create!(
-  title: "Computer Glitch",
+  title: "Friendly neigbothood computer-man",
   category: "tech",
-  description: "Tech trouble! My computer won't start, and I have work to finish. Any IT-savvy neighbors available for a quick troubleshooting session?",
+  description: "Just got a fancy degree as a fullstack-developer. Anyone who has computer problems can knock at my door!",
   user_id: user5.id,
   solved: false,
-  asker: true
+  asker: false
 )
 
 Post.create!(
@@ -149,12 +149,12 @@ Post.create!(
 )
 
 Post.create!(
-  title: "Fitness Buddy Wanted",
+  title: "Need a fitness buddy?",
   category: "fitness",
-  description: "Looking for a workout partner for evening walks around the neighborhood. Let's motivate each other to stay fit and healthy!",
+  description: "Looking for a workout partner for evening walks around the neighborhood? I'm your gal. I'm doing it myself but wouldn't mind someone joining.",
   user_id: user9.id,
   solved: false,
-  asker: true
+  asker: false
 )
 
 Post.create!(
@@ -169,19 +169,19 @@ Post.create!(
 Post.create!(
   title: "Tech Recycling",
   category: "other",
-  description: "Have old electronics to recycle. Anyone aware of nearby e-waste disposal options? Let's ensure our old gadgets are disposed of responsibly.",
+  description: "Have old electronics to recycle? Drop 'm with me! Let's ensure our old gadgets are disposed of responsibly. I'll take care of the rest ;)",
   user_id: user11.id,
   solved: false,
-  asker: true
+  asker: false
 )
 
 Post.create!(
   title: "Painting Assistance",
   category: "DIY",
-  description: "Painting a room but struggling with the edges. Any painting experts available to share tips or even lend a steady hand for a few hours?",
+  description: "Painting a room but struggling with the edges? I can lend a steady hand for a few hours! Just provide the paint and tools and I'll be there :)",
   user_id: user12.id,
   solved: false,
-  asker: true
+  asker: false
 )
 puts "creating posts"
 
