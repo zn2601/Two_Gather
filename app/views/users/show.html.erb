@@ -5,7 +5,7 @@
     </div>
 
     <div class= "usersshow-photo-review">
-      <div class="userrsshow-photo-left">
+      <div class="usersshow-photo-left">
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: "photo" %>
       <% else %>
@@ -22,20 +22,24 @@
     <% if @user.reviews.empty? && @user.reviews_as_asker.empty? %>
       <p>The first review is yet to come in!</p>
     <% else %>
+
       <ul>
         <% @user.reviews.each do |review| %>
           <% if review.asker_comment %>
             <h3><%= review.post.user.name%> </h3>
+            <p>Rating :<%= "❤️" * review.asker_rating %></p>
             <p><%= review.asker_comment %></p>
-            <p><%= review.asker_rating %></p>
           <% end %>
         <% end %>
         <% @user.reviews_as_asker.each do |review| %>
           <% if review.helper_comment %>
             <h3><%= review.user.name%> </h3>
+            <p>Rating :<%= "❤️" * review.helper_rating %></p>
             <p><%= review.helper_comment %></p>
-            <p><%= review.helper_rating %></p>
           <% end %>
+        <% end %>
+        <% if @user.reviews.empty? && @user.reviews_as_asker.empty? %>
+          <p>There are no reviews to be displayed.</p>
         <% end %>
       </ul>
     <% end %>
