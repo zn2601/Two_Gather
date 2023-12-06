@@ -2,7 +2,13 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
   data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-  <h1>chat with your neighbor</h1>
+  <%# if current_user is asker display @chatroom.helper.name %>
+  <% if current_user == @chatroom.helper %>
+    <h1>Chat with <%= @chatroom.asker.name %></h1>
+  <% else %>
+    <h1>Chat with <%= @chatroom.helper.name %></h1>
+  <% end %>
+
   <%= link_to "go back", dashboard_path %>
 
   <div class="messages" data-chatroom-subscription-target="messages">
