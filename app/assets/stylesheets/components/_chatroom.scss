@@ -41,4 +41,16 @@
 .container-chatroom {
   display: flex;
   justify-content: center;
+  .chat-preview {
+    margin-top: 20px;
+    p {
+      font-size: 14px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
 }

@@ -8,17 +8,20 @@
         <%= link_to chat.helper.name, chatroom_path(chat) %>
         <% last_user = chat.messages.last.user  %>
         <br>
-        <%= last_user == current_user ? "you:" : last_user.name %>
-        <%= chat.messages.last.content %>
+        <p><%= last_user == current_user ? "You:" : last_user.name %>
+        <%= chat.messages.last.content %></p>
       </div>
     <% else %>
       <div class="chat-all-image">
         <%= cl_image_tag chat.asker.photo.key, class: "img-fluid" %>
       </div>
-      <%= link_to chat.asker.name, chatroom_path(chat) %>
-      <% last_user = chat.messages.last.user  %>
-      <%= last_user == current_user ? "you:" : last_user.name %>
-      <%= chat.messages.last.content %>
+      <div class="chat-preview">
+        <%= link_to chat.asker.name, chatroom_path(chat) %>
+        <% last_user = chat.messages.last.user  %>
+        <br>
+        <p><%= last_user == current_user ? "you:" : last_user.name %>
+        <%= chat.messages.last.content %></p>
+      </div>
     <% end %>
   <% end %>
 
