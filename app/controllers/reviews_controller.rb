@@ -24,6 +24,7 @@ end
   def create
     @review = Review.new(review_params)
     @review.post = @post
+    @review.user = current_user if @post.user != current_user
 
     if @review.save
       if @review.mark_as_checked
