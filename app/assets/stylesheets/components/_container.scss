@@ -248,6 +248,9 @@
     h1 {
       font-size: 35px;
       font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 0.3;
+      margin-top: 30px;
     }
     h2 {
       font-size: 25px;
@@ -259,6 +262,18 @@
       margin-top: 20px;
       font-size: 30px;
       font-weight: 600;
+    }
+  }
+
+  .dashboard-posts{
+    h2 {
+      margin-top: 20px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    h3{
+      
+      margin-left: -30px;
     }
   }
 
