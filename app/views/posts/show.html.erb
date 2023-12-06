@@ -41,12 +41,20 @@
               <%= f.input :helper_id, as: :hidden, input_html: { value: @post.user.id} %>
               <%= f.input :asker_id, as: :hidden, input_html: { value: current_user.id} %>
             <% end %>
-            <%= f.button :button, 'Reach me' %>
+            <%= f.button :button, '✨start chatting✨' %>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
+
+    <% if current_user == @post.user %>
+      <%= link_to new_post_review_path(@post) do %>
+        <div class="go-to-review-btn">
+          <p>review</p>
+        </div>
+      <% end %>
+  <% end %>
 
   <div class="container images">
     <div class="images-header">
@@ -64,5 +72,6 @@
     </div>
   </div>
 </div>
+
 
 <%# if post.current_user you can see this button otherwise no button to leave review %>
