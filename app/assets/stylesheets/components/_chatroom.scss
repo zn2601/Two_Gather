@@ -34,23 +34,28 @@
     height: 70px;
     width: 70px;
     border-radius: 10px;
-    margin: 20px;
+    margin-right: 10px;
   }
 }
 
 .your-chats {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: flex-start;
+  margin: 25px 0px 0px 15px;
 }
 
 .container-chatroom {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  .chat-link {
+    display: flex;
+    padding: 15px;
+  }
   .chat-preview {
-    margin-top: 20px;
     p {
       font-size: 14px;
+      margin: 0;
     }
     a {
       text-decoration: none;
