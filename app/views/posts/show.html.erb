@@ -6,13 +6,17 @@
 
   <div class="show-intro">
     <div class="greeting">
-      <h1>Hi, <%= current_user.name %> <br> This is <%= @post.user.name %> </h1>
+    <div class="pfp-show" style="position: relative; display: inline-block;">
+     <% if @post.user.photo.attached? %>
+        <%= cl_image_tag @post.user.photo.key, class: "photo" %>
+      <% else %>
+        <%= image_tag "https://www.creativefabrica.com/wp-content/uploads/2022/12/09/Wicked-Clown-Laughing-Evil-Female-51256887-1-580x580.png", class: "photo" %>
+      <% end %>
     </div>
-    <div id="pfp-show" style="position: relative; display: inline-block;">
-      <img src="https://source.unsplash.com/random/500x500/?portrait" alt="Avatar" style="position: absolute; left: 0; margin-left :-10px; margin :-7px; top: 50%; transform: translateY(-50%); border-radius: 50%; width: 50px; height: 50px;">
+    <h1>This is <%= @post.user.name %> </h1>
     </div>
     <div class="show-info">
-      <h2><%= welcome_message %> <strong>#<%= @post.category %></strong>  </h2>
+      <h2><%= @post.user.name %> <%= welcome_message %> <strong>#<%= @post.category %></strong></h2>
       <h3>Zipcode: <%= @post.user.zipcode %></h3>
     </div>
   </div>
@@ -20,7 +24,7 @@
   <div class="container user-info">
     <div class="post-user-info">
       <h4> <strong> <%= @post.user.name %>'s struggle </strong></h4>
-      <h4 class="h4-description"> <%= @post.description %> </h4>
+      <h4 class="h4-description"> <%= @post.description %></h4>
     </div>
     <div class="btn-cta">
 
