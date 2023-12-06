@@ -28,10 +28,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @existing_chat = (find_post_user_chatrooms(@post) & find_current_user_chatrooms).first if current_user
     if @post.asker?
-      welcome_message = "They would really appreciate some help with "
+      welcome_message = "would really appreciate some help with "
       button_text = "Help out!"
     else
-      welcome_message = "They would love to help with "
+      welcome_message = "would love to help with "
       button_text = "Reach out!"
     end
     render locals: { welcome_message: welcome_message, button_text: button_text }
