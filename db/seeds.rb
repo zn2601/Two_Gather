@@ -97,7 +97,7 @@ Post.create!(
 Post.create!(
   title: "Babysitter Cancellation",
   category: "other",
-  description: "Urgently need a babysitter tonight! Last-minute cancellation, and we have plans. Our kids are well-behaved; just need someone trustworthy for a few hours. Compensation provided!",
+  description: "Urgently need a babysitter tonight! Last-minute cancellation, and we have plans. Our kids are well-behaved; just need someone trustworthy for a few hours.",
   user_id: user3.id,
   solved: false,
   asker: true
