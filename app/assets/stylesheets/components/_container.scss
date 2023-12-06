@@ -209,15 +209,16 @@
   margin-top: -20px;
   font-size: 20px;
 }
-
 .container-usersshow {
   margin: 10px;
 
   .usersshow-photo-review {
     display: flex;
     justify-content: space-between;
+
     .usersshow-photo-left {
       align-items: left;
+
       .photo {
         width: 150px;
         height: 150px;
@@ -228,57 +229,52 @@
 
   .usersshow-greeting {
     width: fit-content;
+
     h1 {
       font-size: 35px;
       font-weight: 700;
       margin-bottom: 20px;
-      line-height: 0.3;
+      line-height: 1;
       margin-top: 30px;
     }
+
     h2 {
       font-size: 25px;
       font-weight: 600;
     }
   }
 
-  .dashboard-about-me {
-    h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      font-weight: 600;
-    }
+  h2 {
+    margin-top: 20px;
   }
 
-  .dashboard-posts{
-    h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      font-weight: 600;
-    }
-    h3{
+  .review-container {
 
-      margin-left: -30px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+
+    .review-user-rating {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: left;
+
+      .review-user-name {
+        font-weight: bold;
+      }
+
+      .review-rating {
+        font-size: 14px;
+        width: 110px;
+      }
+    }
+
+    .review-comment {
+      margin-left: 20px;
     }
   }
-
-  .dashboard-review {
-    h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      font-weight: 600;
-    }
-  }
-
-  .usersshow-about-me {
-    h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      font-weight: 600;
-    }
-  }
-
 }
-
 .container-dashboard {
   margin: 10px;
 
