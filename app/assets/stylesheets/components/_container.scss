@@ -216,13 +216,13 @@
   font-size: 20px;
 }
 
-.container-dashboard {
+.container-usersshow {
   margin: 10px;
 
-  .dashboard-photo-review {
+  .usersshow-photo-review {
     display: flex;
     justify-content: space-between;
-    .dashboard-photo-left {
+    .usersshow-photo-left {
       align-items: left;
       .photo {
         width: 150px;
@@ -230,20 +230,9 @@
         border-radius: 5px;
       }
     }
-    .dashboard-review-right {
-      text-align: right;
-      h2 {
-        font-size: 25px;
-        font-weight: 600;
-      }
-      h3 {
-        font-size: 20px;
-        font-weight: 500;
-      }
-
-    }
   }
-  .dashboard-greeting {
+
+  .usersshow-greeting {
     width: fit-content;
     h1 {
       font-size: 35px;
@@ -254,30 +243,11 @@
       font-weight: 600;
     }
   }
-  .dashboard-about-me {
+  .usersshow-about-me {
     h2 {
       margin-top: 20px;
       font-size: 30px;
       font-weight: 600;
-    }
-  }
-
-  .dashboard-review {
-    h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      font-weight: 600;
-    }
-  }
-  .review-text-btn {
-    text-decoration: none !important;
-    display: flex;
-    justify-content: space-between;
-    .review-text {
-      width: 300px;
-      height: 100px;
-      border-radius: 5px;
-
     }
   }
 
