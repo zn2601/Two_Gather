@@ -25,24 +25,26 @@
 
   <div class="container user-info">
     <div class="post-user-info">
-      <h4> <strong> <%= @post.user.name %>'s struggle </strong></h4>
-      <h4 class="h4-description"> <%= @post.description %></h4>
+      <h4><strong> <%= @post.user.name %>'s struggle </strong></h4>
+      <h4><%= @post.description %></h4>
     </div>
-    <div class="btn-cta">
-      <% if @existing_chat %>
-        <%= link_to "chat", chatroom_path(@existing_chat) %>
-      <% else %>
-        <%= simple_form_for @chatroom do |f| %>
-          <% if @post.asker %>
-            <%= f.input :asker_id, as: :hidden, input_html: { value: @post.user.id} %>
-            <%= f.input :helper_id, as: :hidden, input_html: { value: current_user.id} %>
-          <% else %>
-            <%= f.input :helper_id, as: :hidden, input_html: { value: @post.user.id} %>
-            <%= f.input :asker_id, as: :hidden, input_html: { value: current_user.id} %>
+    <div class="btn-end">
+      <div class="btn-cta">
+        <% if @existing_chat %>
+          <%= link_to "chat", chatroom_path(@existing_chat) %>
+        <% else %>
+          <%= simple_form_for @chatroom do |f| %>
+            <% if @post.asker %>
+              <%= f.input :asker_id, as: :hidden, input_html: { value: @post.user.id} %>
+              <%= f.input :helper_id, as: :hidden, input_html: { value: current_user.id} %>
+            <% else %>
+              <%= f.input :helper_id, as: :hidden, input_html: { value: @post.user.id} %>
+              <%= f.input :asker_id, as: :hidden, input_html: { value: current_user.id} %>
+            <% end %>
+            <%= f.button :button %>
           <% end %>
-          <%= f.button :button %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 
@@ -62,3 +64,5 @@
     </div>
   </div>
 </div>
+
+<%# if post.current_user you can see this button otherwise no button to leave review %>

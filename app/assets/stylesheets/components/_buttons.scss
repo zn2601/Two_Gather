@@ -52,19 +52,24 @@
   font-size: larger;
 }
 
-.btn-cta {
-  position: relative;
-  top: 20px;
-  right: 20px;
-  width: 315px;
-  height: 48px;
-  flex-shrink: 0;
-  border-radius: 0px 0px 20px 20px;
-  background: #2CAA49;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+
+.btn-end {
+  align-self: center;
+  .btn-cta {
+    position: relative;
+    top: 11px;
+    width: 315px;
+    height: 48px;
+    border-radius: 0px 0px 20px 20px;
+    background: #2CAA49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    .btn {
+      color: white
+    }
+  }
 }
 
 .see-more-btn {
@@ -72,7 +77,6 @@
   margin-left: 0px;
   width: 120px;
   height: 35px;
-  flex-shrink: 0;
   border-radius: 20px;
   background: #2CAA49;
   color: white;
