@@ -9,24 +9,28 @@
 
   <div class="about">
     <h3> About <%=@user.name%></h2>
-    <p>placeholder</p>
+    <p><%= @user.about_me %></p>
   </div>
 
 
 <div class= "Reviews">
   <h2> Reviews </h2>
-  <ul>
-  <% @user.reviews.each do |review| %>
-    <h3><%= review.post.user.name%> </h3>
-    <p><%= review.asker_comment %></p>
-    <p><%= review.asker_rating %></p>
-    <% end %>
-    <% @user.reviews_as_asker.each do |review| %>
-    <% if review.helper_comment %>
-    <h3><%= review.user.name%> </h3>
-    <p><%= review.helper_comment %></p>
-    <p><%= review.helper_rating %></p>
-    <% end %>
+  <% if @user.reviews.empty? && @user.reviews_as_asker.empty? %>
+    <p>The first review is yet to come in!</p>
+  <% else %>
+    <ul>
+      <% @user.reviews.each do |review| %>
+        <h3><%= review.post.user.name%> </h3>
+        <p><%= review.asker_comment %></p>
+        <p><%= review.asker_rating %></p>
+      <% end %>
+      <% @user.reviews_as_asker.each do |review| %>
+        <% if review.helper_comment %>
+          <h3><%= review.user.name%> </h3>
+          <p><%= review.helper_comment %></p>
+          <p><%= review.helper_rating %></p>
+        <% end %>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
 </div>
