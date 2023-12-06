@@ -3,19 +3,19 @@
     <div class="triangle-btn"></div>
   <% end %>
   <div class="show-intro">
-    <div class="greeting">
-      <div class="pfp-show" style="position: relative; display: inline-block;">
-      <% if @post.user.photo.attached? %>
-          <%= cl_image_tag @post.user.photo.key, class: "photo" %>
-        <% else %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png", class: "photo" %>
-        <% end %>
+    <div class="greeting-and-info">
+      <div class="greeting">
+        <% if @post.user.photo.attached? %>
+            <%= cl_image_tag @post.user.photo.key, class: "show-pfp" %>
+          <% else %>
+            <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/2048px-Default_pfp.svg.png", class: "photo" %>
+          <% end %>
+        <h1>This is <%= @post.user.name %> </h1>
       </div>
-      <h1>This is <%= @post.user.name %> </h1>
-    </div>
-    <div class="show-info">
-      <h2><%= @post.user.name %> <%= welcome_message %> <strong>#<%= @post.category %></strong></h2>
-      <h3>Zipcode: <%= @post.user.zipcode %></h3>
+      <div class="show-info">
+        <h2><%= @post.user.name %> <%= welcome_message %> <strong>#<%= @post.category %></strong></h2>
+        <h3><%= @post.user.zipcode %></h3>
+      </div>
     </div>
   </div>
 
