@@ -6,12 +6,16 @@
   <div class="chat-top">
     <div class="chat-top-left">
       <% if current_user == @chatroom.helper %>
-        <h1>Chat with <%= @chatroom.asker.name %></h1>
+        <%= link_to user_path(@chatroom.asker), class: "text-decoration-none text-dark" do %>
+        <h1>Chat with <strong><%= @chatroom.asker.name %></strong></h1>
+        <% end %>
       <% else %>
-        <h1>Chat with <%= @chatroom.helper.name %></h1>
+        <%= link_to user_path(@chatroom.helper), class: "text-decoration-none text-dark" do %>
+        <h1>Chat with <strong><%= @chatroom.helper.name %></strong></h1>
+        <% end %>
       <% end %>
     </div>
-    <div class="chat-top-right"><%= link_to "go back", dashboard_path %></div>
+    <div class="chat-top-right"><%= link_to "go back", chatrooms_path %></div>
   </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
