@@ -6,6 +6,7 @@
   <% @chatrooms.each do |chat| %>
     <% if chat.asker == current_user %>
       <div class="chat-link">
+        <%= link_to chatroom_path(chat) do %>
         <div class="chat-all-img">
           <%= cl_image_tag chat.helper.photo.key, class: "" %>
         </div>
@@ -16,9 +17,11 @@
           <p><%= last_user == current_user ? "You:" : last_user.name %>
           <%= chat.messages.last.content %></p>
         </div>
+        <% end %>
       </div>
     <% else %>
       <div class="chat-link">
+        <%= link_to chatroom_path(chat) do %>
         <div class="chat-all-img">
           <%= cl_image_tag chat.asker.photo.key, class: "img-fluid" %>
         </div>
@@ -29,6 +32,7 @@
           <p><%= last_user == current_user ? "you:" : last_user.name %>
           <%= chat.messages.last.content %></p>
         </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>
