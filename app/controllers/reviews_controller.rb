@@ -22,6 +22,7 @@ end
   end
 
   def create
+    @chatrooms = Chatroom.where(asker: current_user) + Chatroom.where(helper: current_user)
     @review = Review.new(review_params)
     @review.post = @post
     @review.user = current_user if @post.user != current_user
@@ -30,8 +31,14 @@ end
       if @review.mark_as_checked
         @post.update(solved: true)
       end
-
-      redirect_to post_path(@post), notice: "Review created successfully."
+      @send_review_user = current_user if @review.user != current_user
+      @chatroom = common_chat(@chatrooms, @review.post.user)
+      Message.create(
+        user_id: @send_review_user.id,
+        content: "I just gave you a review for '#{@post.title.capitalize}'! Thanks for reaching out.",
+        chatroom_id: @chatroom.id
+      )
+      redirect_to chatroom_path(@chatroom), notice: "Review created successfully."
     else
       render :new, alert: "Review could not be created."
     end
@@ -50,6 +57,10 @@ end
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def common_chat(chatrooms, user)
+    @chatrooms.find { |chat| chat.asker == user || chat.helper == user }
   end
 
 end

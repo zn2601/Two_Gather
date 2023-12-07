@@ -31,7 +31,7 @@
     <div class="btn-end">
       <div class="btn-cta">
         <% if @existing_chat %>
-          <%= link_to "", chatroom_path(@existing_chat) %>
+          <%= link_to "Chat", chatroom_path(@existing_chat), class: "text-decoration-none text-white bold" %>
         <% else %>
           <%= simple_form_for @chatroom do |f| %>
             <% if @post.asker %>
@@ -47,14 +47,6 @@
       </div>
     </div>
   </div>
-
-    <% if current_user == @post.user %>
-      <%= link_to new_post_review_path(@post) do %>
-        <div class="go-to-review-btn">
-          <p>review</p>
-        </div>
-      <% end %>
-    <% end %>
 
   <div class="container images">
     <div class="images-header">
