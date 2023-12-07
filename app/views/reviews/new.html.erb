@@ -1,19 +1,23 @@
-<%= simple_form_for [@post, @review] do |f| %>
-<%= hidden_field_tag :user_id, params[:user_id] %>
-  <div class="container create-review">
-    <div class="form">
-      <%= link_to post_path(@post) do %>
-        <div class="triangle-btn"></div>
-      <% end %>
+  <%= link_to post_path(@post) do %>
+      <div class="triangle-btn"></div>
+    <% end %>
+    
+  <div class="container-review">
 
-      <div class= "review_intro">
+    <div class="form">
+
+      <%= simple_form_for [@post, @review] do |f| %>
+      <%= hidden_field_tag :user_id, params[:user_id] %>
+
+
+      <div>
         <p> Thank you so much for choosing TwoGather. <br>Your input is helping bring neighbors closer together!<br> We hope you had a great time connecting and were able to have a positive experience. </p>
       </div>
 
-      <div class="review_bottom">
+      <div>
         <h1>How was your experience ?</h1>
         <hr>
-        <div class= "review_bottom_box">
+        <div>
           <% if current_user == @asker %>
             <%= f.input :asker_comment, placeholder: 'Please leave a review for your helper', label: false %>
           <% else %>
@@ -22,11 +26,11 @@
         </div>
 
         <% if @post.user == current_user %>
-          <div class ="review_bottom_reviewee">
+          <div>
             <%= f.input :user_id, as: :select, collection: @users, prompt: 'Select a user', label: false %>
           </div>
         <% end %>
-        <div class= "review_bottom_rating">
+        <div>
           <% if current_user == @asker %>
             <%= f.input :asker_rating, as: :select, collection: 1..5, prompt: 'Please choose a rating', label: false %>
           <% else %>
@@ -34,12 +38,13 @@
           <% end %>
         </div>
         <% if current_user == @asker %>
-          <div class="review_bottom_checkbox">
+          <div>
             <%= f.input :mark_as_checked, as: :boolean, label: 'Mark as checked'%>
           </div>
         <% end %>
         <%= f.submit class: 'create-btn'%>
       </div>
+      <% end %>
     </div>
+
   </div>
-<% end %>
