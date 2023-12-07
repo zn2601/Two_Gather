@@ -8,9 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "open-uri"
-
+Message.delete_all
+puts "deleting Messages"
+Chatroom.delete_all
+puts "deleting Chatrooms"
 Review.delete_all
-puts "deleting reviews"
+puts "deleting Reviews"
 Post.delete_all
 puts "deleting Posts"
 User.delete_all
@@ -185,5 +188,5 @@ Post.create!(
 )
 puts "creating posts"
 
-Review.create!(user_id: user1.id, post_id: post1.id, asker_rating: 5, helper_rating: 5, asker_comment: "Great help!", helper_comment: "Great help!")
+Review.create!(user_id: user3.id, post_id: post1.id, asker_rating: 5, helper_rating: 5, asker_comment: "Great help!", helper_comment: "Very nice to work with!")
 puts "Done creating"
