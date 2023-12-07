@@ -135,7 +135,7 @@
   }
 }
 
-.container.show {
+.container.show{
   background: #C3B6EC;
   padding: 15px;
   height: 100vh;
@@ -186,7 +186,6 @@
       font-size: 16px;
       line-height: 22px;
     }
-  }
 }
 
 .container.user-info{
@@ -362,14 +361,15 @@
 
     }
   }
-  .list-review {
-    padding-top: 0px;
-    a {
-      text-align: center  !important;
-      text-decoration: none !important;
-      color: black !important;
-      font-size: 20px !important;
-      font-weight: 500 !important;
-    }
+
+}
+}
+
+.container-review {
+  margin-top:50px;
+  padding-left:20px;
+  padding-right:20px;
+  .triangle-btn {
+    left:0px;
   }
 }
