@@ -165,6 +165,13 @@
         font-size: 28px;
         font-weight: 700;
       }
+      p {
+        position: absolute;
+        right: 247px;
+        top: 175px;
+        width: 113px;
+        color: black;
+    }}
     }
     .show-info{
       width: 248px;
@@ -179,7 +186,6 @@
       font-size: 16px;
       line-height: 22px;
     }
-  }
 }
 
 .container.user-info{
@@ -356,4 +362,5 @@
     }
   }
 
+}
 }
