@@ -45,8 +45,14 @@
     <h2>My posts:</h2>
     <ul style="list-style-type: none">
       <% @posts.each do |post| %>
-        <li><h3><%= link_to post.title, post_path(post), class: "text-decoration-none" %></h3></li>
-        <%= link_to "review", new_post_review_path(post) %>
+        <div class="d-flex justify-content-between ">
+          <div class="list-review">
+            <li><h3><%= link_to post.title, post_path(post) %></h3></li>
+          </div>
+          <div class="go-to-review-btn">
+            <%= link_to "review", new_post_review_path(post) %>
+          </div>
+        </div>
       <% end %>
     </ul>
 
