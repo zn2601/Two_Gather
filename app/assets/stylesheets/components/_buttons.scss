@@ -83,9 +83,7 @@
   height: 50px;
   border-radius: 20px;
   background: #D5795D;
-  position: absolute;
-  bottom: 485px;
-  left: 235px;
+  text-decoration: none;
   p {
     text-decoration: none;
     color: #FFF;
@@ -93,7 +91,14 @@
     font-size: 20px;
     margin: 0;
   }
+  a {
+    align-self: center !important;
+    text-decoration: none !important;
+    color: #FFF !important;
+    font-size: 20px !important;
+  }
 }
+
 
 .see-more-btn {
   margin-top: 20px;
