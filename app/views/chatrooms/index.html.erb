@@ -1,11 +1,11 @@
 <div class="your-chats">
-  <h1>Your chats</h1>
+  <h1><strong>Your chats</strong></h1>
 </div>
 
-<div class="container-chatroom">
+<div class="container-chatroom p-2">
   <% @chatrooms.each do |chat| %>
     <% if chat.asker == current_user %>
-      <div class="chat-link">
+      <div class="chat-link card justify-content-start p-1">
         <%= link_to chatroom_path(chat) do %>
         <div class="chat-all-img">
           <%= cl_image_tag chat.helper.photo.key, class: "" %>
@@ -14,13 +14,13 @@
           <%= link_to chat.helper.name, chatroom_path(chat) %>
           <% last_user = chat.messages.last.user  %>
           <br>
-          <p><%= last_user == current_user ? "You:" : last_user.name %>
+          <p><%= last_user == current_user ? "You" : last_user.name %>:
           <%= chat.messages.last.content %></p>
         </div>
         <% end %>
       </div>
     <% else %>
-      <div class="chat-link">
+      <div class="chat-link card justify-content-start p-1">
         <%= link_to chatroom_path(chat) do %>
         <div class="chat-all-img">
           <%= cl_image_tag chat.asker.photo.key, class: "img-fluid" %>
@@ -29,7 +29,7 @@
           <%= link_to chat.asker.name, chatroom_path(chat) %>
           <% last_user = chat.messages.last.user  %>
           <br>
-          <p><%= last_user == current_user ? "you:" : last_user.name %>
+          <p><%= last_user == current_user ? "You" : last_user.name %>:
           <%= chat.messages.last.content %></p>
         </div>
         <% end %>

@@ -1,0 +1,13 @@
+// d-flex flex-row justify-content-between mb-3 p-3
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 14px;
+  border-radius: 20px;
+  .review-rating {
+    align-self: center;
+  }
+}

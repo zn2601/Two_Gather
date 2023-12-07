@@ -1,51 +1,49 @@
 <div class="container-dashboard">
-  <div class="dashboard-greeting ">
-    <h1>Hello,</h1>
-    <h1><%= current_user.name %></h1>
-
-  </div>
-
-  <div class="dashboard-photo-review">
-    <div class="dashboard-photo-left">
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, class: "photo" %>
-      <% else %>
-        <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "photo" %>
-      <% end %>
+    <div class="dashboard-greeting ">
+      <h1 class="pb-3 pt-3">Hello <%= current_user.name %></h1>
     </div>
-    <div class="dashboard-review-right">
-      <h2>Love from your community</h2>
-      <div class="review-rating">
-        <span onclick="gfg(1)"
-              class="star">❤
-        </span>
-        <span onclick="gfg(2)"
-              class="star">❤
-        </span>
-        <span onclick="gfg(3)"
-              class="star">❤
-        </span>
-        <span onclick="gfg(4)"
-              class="star">❤
-        </span>
-        <span onclick="gfg(5)"
-              class="star">❤
-        </span>
-    </div>
-      <h3>Keep up the good work!</h3>
-    </div>
-  </div>
+    <div class="dashboard-photo-review">
+      <div class="photo-and-info d-flex">
+        <div class="dashboard-photo-left">
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, class: "photo" %>
+          <% else %>
+            <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "photo" %>
+          <% end %>
+        </div>
+        <div class="dashboard-review-right">
+          <h2>Love from your community</h2>
+          <div class="review-rating">
+            <span onclick="gfg(1)"
+                  class="star">❤️
+            </span>
+            <span onclick="gfg(2)"
+                  class="star">❤️
+            </span>
+            <span onclick="gfg(3)"
+                  class="star">❤️
+            </span>
+            <span onclick="gfg(4)"
+                  class="star">❤️
+            </span>
+            <span onclick="gfg(5)"
+                  class="star">❤️
+            </span>
+          </div>
+          <h3>Keep up the good work!</h3>
+        </div>
+      </div>
 
   <div class="dashboard-about-me">
-    <h2>About me:</h2>
+    <h2>About me</h2>
     <p><%= current_user.about_me %></p>
   </div>
 
   <div class="dashboard-posts">
-    <h2>My posts:</h2>
+    <h2>My posts</h2>
     <ul style="list-style-type: none">
       <% @posts.each do |post| %>
-        <div class="d-flex justify-content-between ">
+        <div class="d-flex justify-content-between align-items-center">
           <div class="list-review">
             <li><h3><%= link_to post.title, post_path(post) %></h3></li>
           </div>
@@ -55,43 +53,37 @@
         </div>
       <% end %>
     </ul>
-
-
   </div>
 
-  <div class="dashboard-posts">
-    <h2>Reviews:</h2>
-
-
+  <div class="dashboard-posts" style="padding-bottom: 60px">
+    <h2>Reviews</h2>
     <% @user.reviews.each do |review| %>
       <% if review.asker_comment %>
-        <div class="review-container">
+        <div class="review-container card">
           <div class="review-user-rating">
-            <div class="review-user-name"><%= review.post.user.name %></div>
-            <div class="review-rating"><%= "❤️" * review.asker_rating %></div>
-          </div>
+            <div class="review-user-name"><strong><%= review.post.user.name %></strong></div>
           <div class="review-comment"><%= review.asker_comment %></div>
+          </div>
+            <div class="review-rating"><%= "❤️" * review.asker_rating %></div>
         </div>
       <% end %>
     <% end %>
     <% @user.reviews_as_asker.each do |review| %>
       <% if review.helper_comment %>
-        <div class="review-container">
+        <div class="review-container card">
           <div class="review-user-rating">
-            <div class="review-user-name"><%= review.user.name %></div>
-            <div class="review-rating"><%= "❤️" * review.helper_rating %></div>
-          </div>
+            <div class="review-user-name"><strong><%= review.user.name %></strong></div>
           <div class="review-comment"><%= review.helper_comment %></div>
+          </div>
+            <div class="review-rating"><%= "❤️" * review.helper_rating %></div>
         </div>
       <% end %>
     <% end %>
     <% if @user.reviews.empty? && @user.reviews_as_asker.empty? %>
       <p>There are no reviews to be displayed.</p>
     <% end %>
-
-
-
   </div>
-<div>
 
-<div class="container d-flex justify-content-center"><%= render "shared/navbar" %></div>
+  <div class="container d-flex justify-content-center"><%= render "shared/navbar" %></div>
+
+</div>

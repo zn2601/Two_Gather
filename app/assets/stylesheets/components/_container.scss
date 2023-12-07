@@ -55,10 +55,7 @@
 .container.navbar {
   width: fit-content;
   height: fit-content;
-  flex-shrink: 0;
-  position: relative;
   bottom: 10px;
-  position: absolute;
   z-index: 999;
   margin-bottom: auto;
 }
@@ -285,9 +282,12 @@
 }
 .container-dashboard {
   margin: 10px;
-
+  .wrapper-purple {
+    background-color: #C3B6EC;
+  }
   .dashboard-photo-review {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     .dashboard-photo-left {
       align-items: left;
@@ -304,7 +304,7 @@
         font-weight: 600;
       }
       h3 {
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 500;
       }
 
@@ -334,7 +334,7 @@
 
   .dashboard-posts{
     h2 {
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 30px;
       font-weight: 600;
     }

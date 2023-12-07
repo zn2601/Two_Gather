@@ -50,10 +50,10 @@
 // CHATROOM INDEX
 .chat-all-img {
   img {
-    height: 70px;
-    width: 70px;
-    border-radius: 10px;
-    margin-right: 10px;
+    max-height: 70px;
+    max-width: 70px;
+    border-radius: 50%;
+    margin-right: 8px;
   }
 }
 
@@ -67,6 +67,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  a {
+    align-self: center;
+  }
   .chat-link {
     display: flex;
     padding: 15px;
