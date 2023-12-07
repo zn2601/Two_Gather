@@ -46,8 +46,11 @@
     <ul style="list-style-type: none">
       <% @posts.each do |post| %>
         <li><h3><%= link_to post.title, post_path(post), class: "text-decoration-none" %></h3></li>
+        <%= link_to "review", new_post_review_path(post) %>
       <% end %>
     </ul>
+
+
   </div>
 
   <div class="dashboard-posts">
