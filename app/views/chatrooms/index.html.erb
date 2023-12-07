@@ -3,39 +3,43 @@
 </div>
 
 <div class="container-chatroom p-2">
-  <% @chatrooms.each do |chat| %>
-    <% if chat.asker == current_user %>
-      <div class="chat-link card justify-content-start p-1">
-        <%= link_to chatroom_path(chat) do %>
-        <div class="chat-all-img">
-          <%= cl_image_tag chat.helper.photo.key, class: "" %>
+  <% if current_user.messages.empty? %>
+    <p>You don't have any chats yet</p>
+  <% else %>
+    <% @chatrooms.each do |chat| %>
+      <% if chat.asker == current_user %>
+        <div class="chat-link card justify-content-start p-1">
+          <%= link_to chatroom_path(chat) do %>
+            <div class="chat-all-img">
+              <%= cl_image_tag chat.helper.photo.key, class: "" %>
+            </div>
+            <div class="chat-preview">
+              <%= link_to chat.helper.name, chatroom_path(chat) %>
+              <% last_user = chat.messages.last.user  %>
+              <br>
+              <p><%= last_user == current_user ? "You" : last_user.name %>:
+              <%= chat.messages.last.content %></p>
+            </div>
+          <% end %>
         </div>
-        <div class="chat-preview">
-          <%= link_to chat.helper.name, chatroom_path(chat) %>
-          <% last_user = chat.messages.last.user  %>
-          <br>
-          <p><%= last_user == current_user ? "You" : last_user.name %>:
-          <%= chat.messages.last.content %></p>
+      <% else %>
+        <div class="chat-link card justify-content-start p-1">
+          <%= link_to chatroom_path(chat) do %>
+            <div class="chat-all-img">
+              <%= cl_image_tag chat.asker.photo.key, class: "img-fluid" %>
+            </div>
+            <div class="chat-preview">
+              <%= link_to chat.asker.name, chatroom_path(chat) %>
+              <% last_user = chat.messages.last.user  %>
+              <br>
+              <p><%= last_user == current_user ? "You" : last_user.name %>:
+              <%= chat.messages.last.content %></p>
+            </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="chat-link card justify-content-start p-1">
-        <%= link_to chatroom_path(chat) do %>
-        <div class="chat-all-img">
-          <%= cl_image_tag chat.asker.photo.key, class: "img-fluid" %>
-        </div>
-        <div class="chat-preview">
-          <%= link_to chat.asker.name, chatroom_path(chat) %>
-          <% last_user = chat.messages.last.user  %>
-          <br>
-          <p><%= last_user == current_user ? "You" : last_user.name %>:
-          <%= chat.messages.last.content %></p>
-        </div>
-        <% end %>
-      </div>
     <% end %>
   <% end %>
+<% end %>
 </div>
 
 <div class="container d-flex justify-content-center"><%= render "shared/navbar" %></div>
