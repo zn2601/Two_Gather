@@ -31,9 +31,6 @@
         <span onclick="gfg(5)"
               class="star">❤
         </span>
-        <h3 id="output">
-              Rating is: 0/5
-          </h3>
     </div>
       <h3>Keep up the good work!</h3>
     </div>
@@ -49,17 +46,45 @@
     <ul style="list-style-type: none">
       <% @posts.each do |post| %>
         <li><h3><%= link_to post.title, post_path(post), class: "text-decoration-none" %></h3></li>
+        <%= link_to "review", new_post_review_path(post) %>
       <% end %>
     </ul>
+
+
   </div>
 
   <div class="dashboard-posts">
     <h2>Reviews:</h2>
-    <ul style="list-style-type: none">
-      <% @recived_reviews.each do |review| %>
-        <li><h3><%= review.user.name %>:  <%= review.helper_comment.nil? ? review.asker_comment : review.helper_comment %>   <%= link_to "REPLY",  dashboard_path, class: "btn-primary" %></h3></li>
+
+
+    <% @user.reviews.each do |review| %>
+      <% if review.asker_comment %>
+        <div class="review-container">
+          <div class="review-user-rating">
+            <div class="review-user-name"><%= review.post.user.name %></div>
+            <div class="review-rating"><%= "❤️" * review.asker_rating %></div>
+          </div>
+          <div class="review-comment"><%= review.asker_comment %></div>
+        </div>
       <% end %>
-    </ul>
+    <% end %>
+    <% @user.reviews_as_asker.each do |review| %>
+      <% if review.helper_comment %>
+        <div class="review-container">
+          <div class="review-user-rating">
+            <div class="review-user-name"><%= review.user.name %></div>
+            <div class="review-rating"><%= "❤️" * review.helper_rating %></div>
+          </div>
+          <div class="review-comment"><%= review.helper_comment %></div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @user.reviews.empty? && @user.reviews_as_asker.empty? %>
+      <p>There are no reviews to be displayed.</p>
+    <% end %>
+
+
+
   </div>
 <div>
 
