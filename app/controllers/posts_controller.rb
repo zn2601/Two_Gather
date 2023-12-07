@@ -19,7 +19,7 @@ class PostsController < ApplicationController
         zoom: 13
       }
     else
-      @center = { lat: 52.341199, lng: 4.856931, zoom: 8 }
+      @center = { lat: 52.341199, lng: 4.856931, zoom: 10 }
     end
   end
 
