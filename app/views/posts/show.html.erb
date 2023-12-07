@@ -61,9 +61,9 @@
       <div class="img-flex">
         <% if @post.photos.attached? %>
           <% @post.photos.each do |image| %>
-          <div class="attached-image">
-            <%= cl_image_tag image.key, class: "img-fluid" %>
-          </div>
+            <div class="attached-image">
+              <%= cl_image_tag image.key, class: "img-fluid" %>
+            </div>
           <% end %>
         <% else %>
           <p><%= @post.user.name %> chose not to attach any image</p>
