@@ -1,4 +1,5 @@
 <div class="container-dashboard">
+  <div class="dashboard-banner">
     <div class="dashboard-greeting ">
       <h1 class="pb-3 pt-3">Hello <%= current_user.name %></h1>
     </div>
@@ -33,17 +34,19 @@
           <h3>Keep up the good work!</h3>
         </div>
       </div>
-
-  <div class="dashboard-about-me">
-    <h2>About me</h2>
-    <p><%= current_user.about_me %></p>
+    </div>
   </div>
+    <div class="dashboard-photo-review">
+      <div class="dashboard-about-me">
+        <h2>About me</h2>
+        <p><%= current_user.about_me %></p>
+      </div>
 
   <div class="dashboard-posts">
     <h2>My posts</h2>
     <ul style="list-style-type: none">
       <% @posts.each do |post| %>
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center mb-4">
           <div class="list-review">
             <li><h3><%= link_to post.title, post_path(post) %></h3></li>
           </div>
