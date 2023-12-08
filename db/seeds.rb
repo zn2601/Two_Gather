@@ -89,9 +89,9 @@ Post.create!(
   asker: true
 )
 Post.create!(
-  title: "Gardening Tips Needed",
-  category: "gardening",
-  description: "I'm a newbie gardener seeking advice on growing tomatoes in a small backyard. Any green thumbs out there willing to share tips on soil, watering, and sunlight?",
+  title: "Need Quick Recipe Ideas",
+  category: "cooking",
+  description: "Running out of dinner inspiration after a long day. Any favorite easy recipes to share? Preferably something quick and delicious. Open to all cuisines!",
   user_id: user2.id,
   solved: false,
   asker: true
