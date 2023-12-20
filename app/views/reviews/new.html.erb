@@ -1,12 +1,17 @@
+  # this is the link to the post this review relates to
   <%= link_to post_path(@post) do %>
+  # This is a div element with a class of triangle-btn, see buttons.scss in the components folder
       <div class="triangle-btn"></div>
     <% end %>
-    
+
+# This is a div element with a class of container-review,see container.scss in the components folder
   <div class="container-review">
 
     <div class="form">
 
+      # This is a simple form for a review object that belongs to a post object
       <%= simple_form_for [@post, @review] do |f| %>
+      # This is a hidden field tag that passes the user id from the params
       <%= hidden_field_tag :user_id, params[:user_id] %>
 
 
@@ -14,29 +19,47 @@
         <p> Thank you so much for choosing TwoGather. <br>Your input is helping bring neighbors closer together!<br> We hope you had a great time connecting and were able to have a positive experience. </p>
       </div>
 
+      # This is a div element that contains a heading and a horizontal line
       <div>
         <h1>How was your experience ?</h1>
+
+        # This is a horizontal line that separates the heading from the rest of the form
         <hr>
+        # This is a div element that contains an input for the comment
         <div>
+          # This is a conditional statement that checks if the current user is the asker
+          # This is to customize the placeholder message
           <% if current_user == @asker %>
+          # This is an input for the asker comment with a placeholder and no label
             <%= f.input :asker_comment, placeholder: 'Please leave a review for your helper', label: false %>
           <% else %>
+          # This is an input for the helper comment with a placeholder and no label
             <%= f.input :helper_comment, placeholder: 'Please leave a review for your asker', label: false %>
           <% end  %>
         </div>
 
+        # This is a conditional statement that checks if the post user is the current user
         <% if @post.user == current_user %>
+         # This is a div element that contains an input for the user id.
+         # This will display all the users involved the chatrooms. see reviews controller file
           <div>
+            # This is an input for the user id as a select with a collection of users and a prompt and no label
             <%= f.input :user_id, as: :select, collection: @users, prompt: 'Select a user', label: false %>
           </div>
+          # End of the conditional statement
         <% end %>
         <div>
+          # This is a conditional statement that checks if the current user is the asker
+          # Depending on the user, the rating will be for the asker or the helper
           <% if current_user == @asker %>
             <%= f.input :asker_rating, as: :select, collection: 1..5, prompt: 'Please choose a rating', label: false %>
           <% else %>
             <%= f.input :helper_rating, as: :select, collection: 1..5, prompt: 'Please choose a rating', label: false %>
           <% end %>
         </div>
+
+        # This is a conditional statement that checks if the current user is the asker
+        # Only an asker, ie not the one helping, can mark a post as checked
         <% if current_user == @asker %>
           <div>
             <%= f.input :mark_as_checked, as: :boolean, label: 'Mark as checked'%>
